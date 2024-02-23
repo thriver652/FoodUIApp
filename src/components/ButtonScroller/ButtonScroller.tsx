@@ -14,6 +14,7 @@ interface FoodItem {
   name: string;
   type: 'Veg' | 'Non-Veg';
   image: number;
+  rate: string;
 }
 
 const FoodScroller: React.FC = () => {
@@ -23,24 +24,28 @@ const FoodScroller: React.FC = () => {
       name: 'Vegetable Curry',
       type: 'Veg',
       image: require('../../assets/icons/VegCurry.png'),
+      rate: '₹100',
     },
     {
       id: 2,
       name: 'Chicken Biryani',
       type: 'Non-Veg',
       image: require('../../assets/icons/Chicken.png'),
+      rate: '₹100',
     },
     {
       id: 3,
       name: 'Paneer Tikka',
       type: 'Veg',
       image: require('../../assets/icons/Paneer.png'),
+      rate: '₹100',
     },
     {
       id: 4,
       name: 'Fish Fry',
       type: 'Non-Veg',
       image: require('../../assets/icons/Fish.png'),
+      rate: '₹100',
     },
   ];
 
@@ -118,6 +123,7 @@ const FoodScroller: React.FC = () => {
           <View key={item.id} style={styles.foodItem}>
             <Image source={item.image} style={styles.foodImage} />
             <Text style={styles.foodName}>{item.name}</Text>
+            <Text style={styles.rate}>{item.rate}</Text>
           </View>
         ))}
       </View>
@@ -161,6 +167,13 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 16,
     textAlign: 'center',
+    color: 'rgba(0, 72, 107, 1)',
+  },
+  rate: {
+    marginTop: 5,
+    fontSize: 16,
+  //  fontWeight: 700,
+    color: 'rgba(0, 72, 107, 1)',
   },
 });
 

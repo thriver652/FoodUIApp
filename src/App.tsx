@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -54,6 +54,16 @@ const HomeStack: React.FC<{foods: any[]; setFoods: Function}> = ({
 };
 
 const App: React.FC = () => {
+  const [showText, setShowText] = useState(false);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setShowText(prevShowText => !prevShowText);
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -61,7 +71,23 @@ const App: React.FC = () => {
           labelStyle: styles.labelStyle,
         }}
         screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
+          tabBarIcon: ({focused}) => {
+            if (route.name === 'Scan QR') {
+              if (showText) {
+                return (
+                  <View style={styles.circleContainer}>
+                    <Text style={styles.scanQrText}>Scan to buy</Text>
+                  </View>
+                );
+              } else {
+                return (
+                  <View style={styles.circleContainer}>
+                    <Image source={require('./assets/icons/ScanQR.png')} />
+                  </View>
+                );
+              }
+            }
+
             let iconName;
 
             if (route.name === 'Home') {
@@ -72,10 +98,6 @@ const App: React.FC = () => {
               iconName = focused
                 ? require('./assets/icons/Food.png')
                 : require('./assets/icons/Food.png');
-            } else if (route.name === 'Scan QR') {
-              iconName = focused
-                ? require('./assets/icons/ScanQR.png')
-                : require('./assets/icons/ScanQR.png');
             } else if (route.name === 'Packs') {
               iconName = focused
                 ? require('./assets/icons/Pack.png')
@@ -105,6 +127,24 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: '600',
     color: 'rgba(0, 43, 64, 1)',
+  },
+  circleContainer: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'rgba(0, 43, 64, 1)',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  scanQrText: {
+    fontFamily: 'Inter',
+    fontSize: 10,
+    fontWeight: '600',
+    color: 'white',
+    alignContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
   },
 });
 
