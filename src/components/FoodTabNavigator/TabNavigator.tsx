@@ -25,7 +25,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
                 activeTab === tab
                   ? 'rgba(0, 72, 107, 1)'
                   : 'rgba(126, 134, 140, 1)',
-              fontSize: 18,
+              fontSize: 12,
               fontWeight: 600,
             }}>
             {tab}

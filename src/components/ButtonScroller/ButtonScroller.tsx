@@ -56,9 +56,9 @@ const FoodScroller: React.FC = () => {
     'All',
     'Veg',
     'Non-Veg',
-    'Button',
-    'Button',
-    'Button',
+    'Button1',
+    'Button2',
+    'Button3',
   ];
 
   const handleFilter = (filter: string): void => {
