@@ -135,7 +135,9 @@ const HomeScreen = () => {
               key={pageIndex}
               style={[
                 styles.dot,
-                pageIndex === activeIndex ? styles.activeDot : null,
+                pageIndex === activeIndex
+                  ? styles.activeDot
+                  : styles.inactiveDot,
               ]}>
               ⬤
             </Text>
@@ -185,6 +187,9 @@ const styles = StyleSheet.create({
   },
   activeDot: {
     color: 'rgba(52, 167, 223, 1)',
+  },
+  inactiveDot: {
+    color: 'rgba(215, 219, 223, 1)',
   },
   flatListContent: {
     justifyContent: 'space-between',
