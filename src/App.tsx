@@ -112,7 +112,7 @@ const App: React.FC = () => {
           },
         })}>
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Food" component={FoodScreen} />
+        <Tab.Screen name="Food" component={FoodListScreen} />
         <Tab.Screen name="Scan QR" component={ScanQrScreen} />
         <Tab.Screen name="Mart" component={MartScreen} />
         <Tab.Screen name="Packs" component={PacksScreen} />

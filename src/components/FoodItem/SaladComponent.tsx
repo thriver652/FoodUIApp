@@ -1,14 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
 const SaladComponent = () => {
   return (
     <View>
-      <Text>SaladComponent</Text>
+      <Text style={{color: 'black'}}>SaladComponent</Text>
     </View>
-  )
-}
+  );
+};
 
-export default SaladComponent
+export default SaladComponent;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

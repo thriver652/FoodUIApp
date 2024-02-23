@@ -1,14 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
 const MixersComponent = () => {
   return (
     <View>
-      <Text>MixersComponent</Text>
+      <Text style={{color: 'black'}}>MixersComponent</Text>
     </View>
-  )
-}
+  );
+};
 
-export default MixersComponent
+export default MixersComponent;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

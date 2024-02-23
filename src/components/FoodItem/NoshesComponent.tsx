@@ -4,7 +4,7 @@ import React from 'react'
 const NoshesComponent = () => {
   return (
     <View>
-      <Text>NoshesComponent</Text>
+      <Text style={{color: 'black'}}>NoshesComponent</Text>
     </View>
   )
 }
